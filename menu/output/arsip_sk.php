@@ -442,6 +442,26 @@ $bidang = $_SESSION['bidang'];
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const updateForm = document.querySelector("form[action='../../data/edit_data/update_data_kel.php']");
+
+            updateForm.addEventListener("submit", function(e) {
+                e.preventDefault(); // Mencegah pengiriman formulir secara otomatis
+
+                // Tampilkan notifikasi konfirmasi
+                const confirmation = confirm("Data baru akan disimpan. Apakah Anda yakin?");
+
+                if (confirmation) {
+                    // Jika "Iya" dipilih, lanjutkan dengan pengiriman formulir
+                    this.submit(); // Kirim formulir
+                } else {
+                    // Jika "Tidak" dipilih, batal pengiriman formulir
+                    // Anda dapat menambahkan tindakan tambahan di sini jika diperlukan
+                }
+            });
+        });
+    </script>
+    <script>
         $(document).ready(function() {
             $.getScript("https://code.jquery.com/ui/1.12.1/jquery-ui.js", function() {
                 $("#tanggal_dari").datepicker({

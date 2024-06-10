@@ -8,25 +8,26 @@ $bidang = $_SESSION['bidang'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<script>
-    window.onpopstate = function (event) {
-        // Redirect to the desired page
-        window.location.href = "admin/index.php";
-    };
-</script>
-<script>
-    window.onpopstate = function (event) {
-        // Show a confirmation dialog
-        if (confirm("Apakah Anda yakin ingin meninggalkan halaman?")) {
-            // Allow the user to go back
-            history.go(-1);
-        } else {
-            // Prevent the user from going back
-            history.pushState(null, null, window.location.href);
-        }
-    };
-</script>
+    <script>
+        window.onpopstate = function(event) {
+            // Redirect to the desired page
+            window.location.href = "admin/index.php";
+        };
+    </script>
+    <script>
+        window.onpopstate = function(event) {
+            // Show a confirmation dialog
+            if (confirm("Apakah Anda yakin ingin meninggalkan halaman?")) {
+                // Allow the user to go back
+                history.go(-1);
+            } else {
+                // Prevent the user from going back
+                history.pushState(null, null, window.location.href);
+            }
+        };
+    </script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -46,7 +47,7 @@ $bidang = $_SESSION['bidang'];
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -175,7 +176,7 @@ $bidang = $_SESSION['bidang'];
             ?>
 
             <main class="container-fluid">
-            <div class="p-4">
+                <div class="p-4">
                     <div class="card shadow ">
                         <div class="card-body">
                             <div class="p-3">
@@ -288,8 +289,8 @@ $bidang = $_SESSION['bidang'];
                                                                     <!-- Tombol Disposisi -->
                                                                     <a href="../../disposisi.php?id_tsm=<?php echo $row['id_tsm']; ?>&no_surat=<?php echo $row['no_surat']; ?>&nama_surat=<?php echo $row['nama_surat'];
                                                                                                                                                                                             ?>&no_agenda=<?php echo $row['no_agenda']; ?>&prihal=<?php echo $row['prihal']; ?>&tanggal_surat=<?php echo $row['tanggal_surat'];
-                                                                                                                                                                                                                                                                                    ?>&instansi=<?php echo $row['instansi']; ?>&tanggal_diterima=<?php echo $row['tanggal_diterima']; ?>&lampiran=<?php echo $row['lampiran'];
-                                                                                                                                                                                                                                ?>&sifat=<?php echo $row['sifat']; ?>&berkas=<?php echo $row['berkas']; ?>" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Disposisi">
+                                                                                                                                                                                                                                                                                                ?>&instansi=<?php echo $row['instansi']; ?>&tanggal_diterima=<?php echo $row['tanggal_diterima']; ?>&lampiran=<?php echo $row['lampiran'];
+                                                                                                                                                                                                                                                                                                                                                                                                    ?>&sifat=<?php echo $row['sifat']; ?>&berkas=<?php echo $row['berkas']; ?>" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Disposisi">
                                                                         <i class="fas fa-tasks"></i>
                                                                     </a>
                                                                 <?php endif; ?>
@@ -332,27 +333,27 @@ $bidang = $_SESSION['bidang'];
                                                                         <div class="modal-body">
                                                                             <!-- Form untuk mengedit data -->
                                                                             <form action="../../data/edit_data/update_data.php" method="post">
-                                                                                <input type="hidden" name="id_tsm" value="<?php echo $row['id_tsm']; ?>">
+                                                                                <input type="hidden" name="id_tsm" value="<?php echo $row['id_tsm']; ?> " required>
                                                                                 <div class="form-row">
                                                                                     <!-- Bagian Kiri -->
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="no_surat"><i class="fa fa-envelope"></i> Nomor Surat:</label>
-                                                                                            <input type="text" class="form-control" id="no_surat" name="no_surat" value="<?php echo $row['no_surat']; ?>">
+                                                                                            <input type="text" class="form-control" id="no_surat" name="no_surat" value="<?php echo $row['no_surat']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- Bagian Tengah -->
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="nama_surat"><i class="fa fa-file"></i> Nama Surat:</label>
-                                                                                            <input type="text" class="form-control" id="nama_surat" name="nama_surat" value="<?php echo $row['nama_surat']; ?>">
+                                                                                            <input type="text" class="form-control" id="nama_surat" name="nama_surat" value="<?php echo $row['nama_surat']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- Bagian Kanan -->
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="instansi"><i class="fa fa-building"></i> Instansi:</label>
-                                                                                            <input type="text" class="form-control" id="instansi" name="instansi" value="<?php echo $row['instansi']; ?>">
+                                                                                            <input type="text" class="form-control" id="instansi" name="instansi" value="<?php echo $row['instansi']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -362,21 +363,21 @@ $bidang = $_SESSION['bidang'];
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="no_agenda"><i class="fa fa-list-alt"></i> No Agenda:</label>
-                                                                                            <input type="text" class="form-control" id="no_agenda" name="no_agenda" value="<?php echo $row['no_agenda']; ?>">
+                                                                                            <input type="text" class="form-control" id="no_agenda" name="no_agenda" value="<?php echo $row['no_agenda']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- Bagian Tengah -->
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="tanggal_surat"><i class="fa fa-calendar"></i> Tanggal Surat:</label>
-                                                                                            <input type="date" class="form-control" id="tanggal_surat" name="tanggal_surat" value="<?php echo $row['tanggal_surat']; ?>">
+                                                                                            <input type="date" class="form-control" id="tanggal_surat" name="tanggal_surat" value="<?php echo $row['tanggal_surat']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- Bagian Kanan -->
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="tanggal_diterima"><i class="fa fa-calendar-check"></i> Tanggal Diterima:</label>
-                                                                                            <input type="date" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="<?php echo $row['tanggal_diterima']; ?>">
+                                                                                            <input type="date" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="<?php echo $row['tanggal_diterima']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -386,7 +387,7 @@ $bidang = $_SESSION['bidang'];
                                                                                     <div class="col-md-4">
                                                                                         <div class="form-group">
                                                                                             <label for="prihal"><i class="fa fa-file-text"></i> Prihal:</label>
-                                                                                            <input type="text" class="form-control" id="prihal" name="prihal" value="<?php echo $row['prihal']; ?>">
+                                                                                            <input type="text" class="form-control" id="prihal" name="prihal" value="<?php echo $row['prihal']; ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- Bagian Tengah -->
@@ -480,19 +481,40 @@ $bidang = $_SESSION['bidang'];
     <script src="../../js/scripts.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const updateForm = document.querySelector("form[action='../../data/edit_data/update_data.php']");
+
+            updateForm.addEventListener("submit", function(e) {
+                e.preventDefault(); // Mencegah pengiriman formulir secara otomatis
+
+                // Tampilkan notifikasi konfirmasi
+                const confirmation = confirm("Data baru akan disimpan. Apakah Anda yakin?");
+
+                if (confirmation) {
+                    // Jika "Iya" dipilih, lanjutkan dengan pengiriman formulir
+                    this.submit(); // Kirim formulir
+                } else {
+                    // Jika "Tidak" dipilih, batal pengiriman formulir
+                    // Anda dapat menambahkan tindakan tambahan di sini jika diperlukan
+                }
+            });
+        });
+    </script>
+
+    <script>
         getLampiranOptions();
     </script>
     <script>
         $(document).ready(function() {
             $.getScript("https://code.jquery.com/ui/1.12.1/jquery-ui.js", function() {
                 $("#tanggal_dari").datepicker({
-                    dateFormat: 'yy-mm-dd', // Ubah format tanggal menjadi 'yyyy-mm-dd'
+                    dateFormat: 'yy-mm-dd',
                     changeMonth: true,
                     changeYear: true,
                     showOn: 'focus'
                 });
                 $("#tanggal_sampai").datepicker({
-                    dateFormat: 'yy-mm-dd', // Ubah format tanggal menjadi 'yyyy-mm-dd'
+                    dateFormat: 'yy-mm-dd',
                     changeMonth: true,
                     changeYear: true,
                     showOn: 'focus'

@@ -86,23 +86,23 @@ $notificationMessage = isset($_GET['notification']) ? $_GET['notification'] : ""
                         <div class="sb-sidenav-menu-heading">Menu</div>
                         <a class="nav-link" href="../menu/output/user.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
-                            Tambah user
+                            Data user
                         </a>
                         <a class="nav-link" href="../menu/output/jabatan.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-card "></i></div>
-                            Tambah Jabatan
+                            Data Jabatan
                         </a>
                         <a class="nav-link" href="../menu/output/bidang.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
-                            Tambah Bidang
+                            Data Bidang
                         </a>
                         <a class="nav-link" href="../menu/output/lampiran.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-paperclip"></i></div>
-                            Tambah Lampiran
+                            Data Lampiran
                         </a>
                         <a class="nav-link" href="../menu/output/sifat.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-certificate"></i></div>
-                            Tambah Sifat
+                            Data Sifat
                         </a>
                         <div class="sb-sidenav-menu-heading"></div>
                     </div>

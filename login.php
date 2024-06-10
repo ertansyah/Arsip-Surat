@@ -75,10 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: $redirectTo");
             exit(); // Penting untuk menghentikan eksekusi script setelah redirect
         } else {
-            $errorMessage = "NIP atau password salah.";
+            $errorMessage = "<span style='color: white;'>NIP atau password salah.</span>";
         }
     } else {
-        $errorMessage = "NIP atau password salah.";
+        $errorMessage = "<span style='color: white;'>NIP atau password salah.</span>";
     }
 }
 

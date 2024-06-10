@@ -233,6 +233,10 @@ $bidang = $_SESSION['bidang'] ?? 'Tidak Diketahui';
 
                 $('#nama_lampiran_edit').val(no_lampiran);
             });
+            // Menambahkan event click pada tombol close ("X")
+    $('#editModal .close').click(function() {
+        $('#editModal').modal('hide');
+    });
         });
         $(".btn-danger").on("click", function(event) {
             if (!confirm("Apakah Anda yakin ingin menghapus data ini?")) {

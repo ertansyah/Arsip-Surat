@@ -236,6 +236,10 @@ $notificationMessage = isset($_GET['notification']) ? $_GET['notification'] : ""
 
                 $('#nama_bidang_edit').val(nama_bidang);
             });
+            // Menambahkan event click pada tombol close ("X")
+            $('#editModal .close').click(function() {
+                $('#editModal').modal('hide');
+            });
         });
         $(".btn-danger").on("click", function(event) {
             if (!confirm("Apakah Anda yakin ingin menghapus data ini?")) {

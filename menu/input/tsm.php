@@ -26,7 +26,7 @@ $bidang = $_SESSION['bidang'];
     <style>
         /* Adjust z-index for the datepicker */
         .datepicker {
-            z-index: 1600 !important;
+            z-index: 999 !important;
             /* Change this value as needed */
         }
 
@@ -99,117 +99,173 @@ $bidang = $_SESSION['bidang'];
         </div>
         <div id="layoutSidenav_content">
             <main class="container" style="width: 800px; margin: auto; padding: 10px;">
-            <div class="p-4">
-                    <div class="card shadow ">
+                <div class="p-4">
+                    <div class="card shadow">
                         <div class="card-body">
-                        <h2 class="text-center">Form Upload Surat Masuk</h2>
-                    </div>
-                    <div class="card-body">
-                        <form action="../../data/simpan_data/simpan_tsm.php" method="post" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="no_surat" class="form-label">Nomor Surat :</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-book"></i></span>
-                                            <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="Masukkan Nomor Surat">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="instansi" class="form-label">Instansi :</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-building"></i></span>
-                                            <input type="text" class="form-control" id="instansi" name="instansi" placeholder="Masukkan Nama Instansi">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="nama_surat" class="form-label">Judul Surat :</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-file-alt"></i></span>
-                                            <input type="text" class="form-control" id="nama_surat" name="nama_surat" placeholder="Masukkan Judul Surat">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="no_agenda" class="form-label">Nomor Agenda :</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-list-alt"></i></span>
-                                            <input type="text" class="form-control" id="no_agenda" name="no_agenda" placeholder="Masukkan Nomor Agenda">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="tanggal_diterima" class="form-label">Tanggal Diterima:</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
-                                            <input type="text" class="form-control datepicker" id="tanggal_diterima" name="tanggal_diterima" placeholder="yyyy-mm-dd" readonly data-provide="datepicker">
-                                            <button type="button" class="btn btn-primary" id="btnToday_tanggal_diterima">Hari Ini</button>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="tanggal_surat" class="form-label">Tanggal Surat:</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
-                                            <input type="text" class="form-control datepicker" id="tanggal_surat" name="tanggal_surat" placeholder="yyyy-mm-dd" readonly data-provide="datepicker">
-                                            <button type="button" class="btn btn-primary" id="btnToday_tanggal_surat">Hari Ini</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="mb-3">
+                            <h2 class="text-center">Form Upload Surat Masuk</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="../../data/simpan_data/simpan_tsm.php" method="post" enctype="multipart/form-data" id="upload-form" class="needs-validation">
+                                <div class="row">
+                                    <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="prihal" class="form-label">Prihal :</label>
+                                            <label for="no_surat" class="form-label">Nomor Surat :</label>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fas fa-certificate"></i></span>
-                                                <input type="text" class="form-control" id="prihal" name="prihal" placeholder="Masukkan Prihal">
+                                                <span class="input-group-text"><i class="fas fa-book"></i></span>
+                                                <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="Masukkan Nomor Surat" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="instansi" class="form-label">Instansi :</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                                <input type="text" class="form-control" id="instansi" name="instansi" placeholder="Masukkan Nama Instansi" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="nama_surat" class="form-label">Judul Surat :</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-file-alt"></i></span>
+                                                <input type="text" class="form-control" id="nama_surat" name="nama_surat" placeholder="Masukkan Judul Surat" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="no_agenda" class="form-label">Nomor Agenda :</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-list-alt"></i></span>
+                                                <input type="text" class="form-control" id="no_agenda" name="no_agenda" placeholder="Masukkan Nomor Agenda" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="tanggal_diterima" class="form-label">Tanggal Diterima:</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                                <input type="text" class="form-control datepicker" id="tanggal_diterima" name="tanggal_diterima" placeholder="yyyy-mm-dd" readonly data-provide="datepicker" required>
+                                                <button type="button" class="btn btn-primary" id="btnToday_tanggal_diterima">Hari Ini</button>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tanggal_surat" class="form-label">Tanggal Surat:</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                                <input type="text" class="form-control datepicker" id="tanggal_surat" name="tanggal_surat" placeholder="yyyy-mm-dd" readonly data-provide="datepicker" required>
+                                                <button type="button" class="btn btn-primary" id="btnToday_tanggal_surat">Hari Ini</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="lampiran" class="form-label">Lampiran :</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-paperclip"></i></span>
-                                            <select class="form-select" id="lampiran" name="lampiran">
-                                                <option value="" disabled selected>Pilih Lampiran</option>
-                                            </select>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="prihal" class="form-label">Prihal :</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-certificate"></i></span>
+                                                <input type="text" class="form-control" id="prihal" name="prihal" placeholder="Masukkan Prihal" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="lampiran" class="form-label">Lampiran :</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-paperclip"></i></span>
+                                                <select class="form-select" id="lampiran" name="lampiran" >
+                                                    <option value="" required disabled selected>Pilih Lampiran</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="sifat" class="form-label">Sifat :</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                                                <select class="form-select" id="sifat" name="sifat">
+                                                    <option value=""  disabled selected>Pilih Sifat</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label for="sifat" class="form-label">Sifat :</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-flag"></i></span>
-                                            <select class="form-select" id="sifat" name="sifat">
-                                                <option value="" disabled selected>Pilih Sifat</option>
-                                            </select>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="berkas" class="form-label">Upload File :</label>
+                                            <input class="form-control" type="file" id="berkas" name="berkas" accept=".pdf, .jpg, .jpeg, .png" required>
+                                            <span class="form-text text-muted">Hanya mendukung file PDF, JPEG, dan PNG.</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <label for="berkas" class="form-label">Upload File :</label>
-                                        <input class="form-control" type="file" id="berkas" name="berkas" accept=".pdf, .jpg, .jpeg, .png">
-                                        <span class="form-text text-muted">Hanya mendukung file PDF, JPEG, dan PNG.</span>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button type="button" class="btn btn-primary" id="upload-button" disabled>Upload File</button>
+                        </div>
+                        </form>
                     </div>
-                    <div class="card-footer text-end">
-                        <button type="submit" class="btn btn-primary">Upload File</button>
-                    </div>
-                    </form>
                 </div>
-            </div>
+
+
+                <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Data</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-bordered table-hover  table-striped table-sm">
+                                    <tr>
+                                        <td>Nomor Surat</td>
+                                        <td><span id="modal-no-surat"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Instansi</td>
+                                        <td><span id="modal-instansi"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama Surat</td>
+                                        <td><span id="modal-nama-surat"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No Agenda</td>
+                                        <td><span id="modal-no-agenda"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Diterima</td>
+                                        <td><span id="modal-tanggal-diterima"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Surat</td>
+                                        <td><span id="modal-tanggal-surat"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prihal</td>
+                                        <td><span id="modal-prihal"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lampiran</td>
+                                        <td><span id="modal-lampiran"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama Berkas</td>
+                                        <td><span id="modal-berkas-name"></span></td>
+                                    </tr>
+                                </table>
+
+                                <iframe id="modal-berkas-iframe" width="100%" height="500"></iframe>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary" id="confirm-upload">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -227,6 +283,67 @@ $bidang = $_SESSION['bidang'];
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="../../js/get_lampiran.js"></script>
     <script src="../../js/get_sifat.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const uploadButton = document.getElementById("upload-button");
+            const uploadForm = document.getElementById("upload-form");
+            const noSurat = document.getElementById("no_surat");
+            const instansi = document.getElementById("instansi");
+            const namaSurat = document.getElementById("nama_surat");
+            const noAgenda = document.getElementById("no_agenda");
+            const tanggalDiterima = document.getElementById("tanggal_diterima");
+            const tanggalSurat = document.getElementById("tanggal_surat");
+            const prihal = document.getElementById("prihal");
+            const lampiran = document.getElementById("lampiran");
+            const berkas = document.getElementById("berkas");
+            const berkasIframe = document.getElementById("modal-berkas-iframe");
+            const confirmationModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
+
+            function showConfirmationModal() {
+                document.getElementById("modal-no-surat").textContent = noSurat.value;
+                document.getElementById("modal-instansi").textContent = instansi.value;
+                document.getElementById("modal-nama-surat").textContent = namaSurat.value;
+                document.getElementById("modal-no-agenda").textContent = noAgenda.value;
+                document.getElementById("modal-tanggal-diterima").textContent = tanggalDiterima.value;
+                document.getElementById("modal-tanggal-surat").textContent = tanggalSurat.value;
+                document.getElementById("modal-prihal").textContent = prihal.value;
+                document.getElementById("modal-lampiran").textContent = lampiran.value;
+                document.getElementById("modal-berkas-name").textContent = berkas.files[0].name;
+
+                // Menetapkan src iframe untuk menampilkan berkas
+                berkasIframe.src = URL.createObjectURL(berkas.files[0]);
+
+                confirmationModal.show();
+            }
+
+            uploadButton.addEventListener("click", function() {
+                showConfirmationModal();
+            });
+
+            document.getElementById("confirm-upload").addEventListener("click", function() {
+                uploadForm.submit();
+            });
+
+            noSurat.addEventListener("input", checkFormValidity);
+            instansi.addEventListener("input", checkFormValidity);
+            namaSurat.addEventListener("input", checkFormValidity);
+            noAgenda.addEventListener("input", checkFormValidity);
+            tanggalDiterima.addEventListener("input", checkFormValidity);
+            tanggalSurat.addEventListener("input", checkFormValidity);
+            prihal.addEventListener("input", checkFormValidity);
+            lampiran.addEventListener("input", checkFormValidity);
+            berkas.addEventListener("input", checkFormValidity);
+
+            function checkFormValidity() {
+                if (uploadForm.checkValidity()) {
+                    uploadButton.disabled = false;
+                } else {
+                    uploadButton.disabled = true;
+                }
+            }
+        });
+    </script>
+
     <script>
         function getTodayDate() {
             const now = new Date();
@@ -248,7 +365,7 @@ $bidang = $_SESSION['bidang'];
     <script>
         $(document).ready(function() {
             $('.datepicker').datepicker({
-                dateFormat: 'yy-mm-dd', // Mengatur format tanggal menjadi 'yyyy-mm-dd'
+                dateFormat: 'yy-mm-dd',
                 autoclose: true
             });
         });

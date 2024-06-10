@@ -235,20 +235,21 @@ $notificationMessage = isset($_GET['notification']) ? $_GET['notification'] : ""
     <script>
         $(document).ready(function() {
             $('.edit-btn').click(function() {
-                var no = $(this).data('no');
-                $('#edit_no').val(no); // Isi input hidden dengan nomor (no)
-                $('#editModal').modal('show');
+            var no = $(this).data('no');
+        $('#edit_no').val(no); // Isi input hidden dengan nomor (no)
+        $('#editModal').modal('show');
 
-                var nama_jabatan = $(this).closest('tr').find('td:eq(1)').text(); // Ambil nama jabatan dari baris tabel
+        var nama_jabatan = $(this).closest('tr').find('td:eq(1)').text(); // Ambil nama jabatan dari baris tabel
 
-                $('#nama_jabatan_edit').val(nama_jabatan);
-            });
-        });
-        $(".btn-danger").on("click", function(event) {
-            if (!confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-                event.preventDefault(); // Mencegah aksi default tombol jika konfirmasi ditolak
-            }
-        });
+        $('#nama_jabatan_edit').val(nama_jabatan);
+    });
+
+    // Menambahkan event click pada tombol close ("X")
+    $('#editModal .close').click(function() {
+        $('#editModal').modal('hide');
+    });
+});
+
     </script>
     <!-- Modal Popup Form -->
     <div class="modal fade" id="addJabatanModal" tabindex="-1" role="dialog" aria-labelledby="addJabatanModalLabel" aria-hidden="true">
